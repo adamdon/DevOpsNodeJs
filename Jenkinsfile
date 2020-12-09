@@ -30,10 +30,6 @@ pipeline
 		
 		stage('SonarQube Testing') 
 		{
-			environment 
-			{
-				scanner = tool 'SonarQube'
-			}
 			
 			steps 
 			{
