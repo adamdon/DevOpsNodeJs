@@ -32,7 +32,7 @@ pipeline
 		{
 			environment 
 			{
-				scanner = tool 'SonarQube'
+				scanner = tool 'SonarQube1'
 			}
 			
 			steps 
