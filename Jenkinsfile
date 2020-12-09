@@ -30,10 +30,14 @@ pipeline
 		
 		stage('SonarQube Testing') 
 		{
+			environment 
+			{
+				scanner = tool 'SonarQube'
+			}
 			
 			steps 
 			{
-				withSonarQubeEnv('sonarqube') 
+				withSonarQubeEnv('SonarQube') 
 				{
 					sh "/var/jenkins_home/sonarqube/sonar-scanner-3.3.0.1492-linux//bin/sonar-scanner -D sonar.login=admin -D sonar.password=admin"
 				}
