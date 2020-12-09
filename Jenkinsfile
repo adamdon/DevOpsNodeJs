@@ -24,6 +24,29 @@ pipeline
 				userRemoteConfigs: [[url: 'https://github.com/adamdon/DevOpsNodeJs']]])            
 			}
 		}
+		
+		
+		
+		
+		stage('SonarQube Testing') 
+		{
+			environment 
+			{
+				scanner = tool 'SonarQubeScanner'
+			}
+			
+			steps 
+			{
+				withSonarQubeEnv('sonarqube') 
+				{
+					sh "${scanner}/bin/sonar-scanner -D sonar.login=admin -D sonar.password=admin"
+				}
+				 
+			}
+		}
+		
+		
+		
 			
 	}
 }
