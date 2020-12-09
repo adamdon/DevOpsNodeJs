@@ -32,14 +32,14 @@ pipeline
 		{
 			environment 
 			{
-				scanner = tool 'sonarqube'
+				scanner = tool 'SonarQube'
 			}
 			
 			steps 
 			{
 				withSonarQubeEnv('sonarqube') 
 				{
-					sh "${scanner}/bin/sonar-scanner -D sonar.login=admin -D sonar.password=admin"
+					sh "${scanner}/sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner -D sonar.login=admin -D sonar.password=admin"
 				}
 				 
 			}
