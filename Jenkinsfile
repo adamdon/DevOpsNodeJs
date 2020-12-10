@@ -6,11 +6,9 @@ pipeline
 	}
 	agent any
 
+	
     stages
 	{
-	
-
-
 		stage('Checkout SCM')
 		{
 				
@@ -24,6 +22,11 @@ pipeline
 				userRemoteConfigs: [[url: 'https://github.com/adamdon/DevOpsNodeJs']]])            
 			}
 		}
+		
+		stage('Build Docker Image') 
+		{
+       			app = docker.build("adamdon/dev_ops_node_js")
+    		}
 		
 		
 		
