@@ -23,7 +23,7 @@ pipeline
 			}
 		}
 		
-		stage('Build Docker image') 
+		stage('Build Docker Image') 
 		{
 						
 			steps
@@ -37,6 +37,23 @@ pipeline
 		       			
     		}
 		
+		
+		
+		stage('Push Docker Image')
+		{
+            		steps 
+			{
+				echo 'Pushing Image to Docker...'
+				script 
+				{
+					docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials')
+					{
+						app.push("${env.BUILD_NUMBER}")
+						app.push("latest")
+					}
+				}
+			}
+		}		
 		
 		
 		
@@ -53,9 +70,12 @@ pipeline
 				{
 					sh "${scanner}/bin/sonar-scanner -D sonar.login=admin -D sonar.password=admin"
 				}
-				 
 			}
 		}
+		
+		
+		
+
 		
 		
 		
