@@ -25,7 +25,11 @@ pipeline
 		
 		stage('Build image') 
 		{
-       			app = docker.build("adamdon/dev_ops_node_js")
+			steps
+			{
+				app = docker.build("adamdon/dev_ops_node_js")
+			}
+		       			
     		}
 		
 		
