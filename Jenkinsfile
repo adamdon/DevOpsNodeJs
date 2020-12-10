@@ -23,11 +23,16 @@ pipeline
 			}
 		}
 		
-		stage('Build image') 
+		stage('Build Docker image') 
 		{
+						
 			steps
 			{
-				app = docker.build("adamdon/DevOpsNodeJs")
+				echo "Building Docker Image..."
+				script 
+				{
+					app = docker.build("adamdon/DevOpsNodeJs")
+				}
 			}
 		       			
     		}
