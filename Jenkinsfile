@@ -31,7 +31,7 @@ pipeline
 				echo "Building Docker Image..."
 				script 
 				{
-					app = docker.build("adamdon/DevOpsNodeJs")
+					app = docker.build("adamdon/dev_ops_node_js")
 				}
 			}
 		       			
