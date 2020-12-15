@@ -47,4 +47,4 @@
       
   - name: 9. Confirm Configured
     shell:
-      cmd: kubectl version	 
+      cmd: kubectl version
