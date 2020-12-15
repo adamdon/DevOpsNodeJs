@@ -10,10 +10,6 @@
     shell:
       cmd: kubectl create deployment dev-ops-node-js --image=adamdon/dev-ops-node-js:latest 
 
-  - name: 2. View new Deployment 
-    shell:
-      cmd: kubectl get deployments
-
   - name: 3. Create new service called node-port-service
     shell:
       cmd: kubectl expose deployment/dev-ops-node-js --type="NodePort" --port 80 --name node-port-service
