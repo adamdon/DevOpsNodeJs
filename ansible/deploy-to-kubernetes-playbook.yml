@@ -4,27 +4,23 @@
   become: yes
 
   tasks:
-  
-  - name: 1. View running notes
-    shell:
-      cmd: kubectl get nodes
-      
-  - name: 2. Create Deployment called dev_ops_node_js
+
+  - name: 1. Create Deployment called dev_ops_node_js
     shell:
       cmd: kubectl create deployment dev_ops_node_js  --adamdon/dev_ops_node_js:1.0
 
-  - name: 3. View new Deployment 
+  - name: 2. View new Deployment 
     shell:
       cmd: kubectl get deployments
 
-  - name: 4. Create new service called node-port-service
+  - name: 3. Create new service called node-port-service
     shell:
       cmd: kubectl expose deployment/dev_ops_node_js --type="NodePort" --port 80 --name node-port-service
 
-  - name: 5. Access the application from outside the cluster
+  - name: 4. Access the application from outside the cluster
     shell:
       cmd: curl $(minikube ip):80
 
-  - name: 6. Scale the Application
+  - name: 5. Scale the Application
     shell:
       cmd: kubectl scale deployments/kubernetes-bootcamp --replicas=4
