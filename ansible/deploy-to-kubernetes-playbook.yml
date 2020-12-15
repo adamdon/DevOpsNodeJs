@@ -7,7 +7,7 @@
 
   - name: 1. Create Deployment called dev_ops_node_js
     shell:
-      cmd: kubectl create deployment dev_ops_node_js  --image=adamdon/dev_ops_node_js:latest 
+      cmd: kubectl create deployment dev-ops-node-js  --image=adamdon/dev_ops_node_js:latest 
 
   - name: 2. View new Deployment 
     shell:
@@ -15,7 +15,7 @@
 
   - name: 3. Create new service called node-port-service
     shell:
-      cmd: kubectl expose deployment/dev_ops_node_js --type="NodePort" --port 80 --name node-port-service
+      cmd: kubectl expose deployment/dev-ops-node-js --type="NodePort" --port 80 --name node-port-service
 
   - name: 4. Access the application from outside the cluster
     shell:
