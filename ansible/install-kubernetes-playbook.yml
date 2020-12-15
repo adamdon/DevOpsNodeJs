@@ -25,26 +25,22 @@
     shell:
       cmd: sudo apt-get install -y kubectl 
 
-  - name: 6. Confirm installation
-    shell:
-      cmd: kubectl version
-
-  - name: 7. Get Minikube Release
+  - name: 6. Get Minikube Release
     shell:
       cmd: curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 
-  - name: 8. Change Minikube Permissions
+  - name: 7. Change Minikube Permissions
     shell:
       cmd: chmod +x minikube
 
-  - name: 9. Move Minikube installation
+  - name: 8. Move Minikube installation
     shell:
       cmd: sudo mv minikube /usr/local/bin/  
 
-  - name: 8. Start Minikube
+  - name: 9. Start Minikube
     shell:
       cmd: minikube start
       
-  - name: 9. Confirm Configured
+  - name: 10. Confirm Configured
     shell:
       cmd: kubectl version
