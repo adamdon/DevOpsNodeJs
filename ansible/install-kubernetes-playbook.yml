@@ -8,7 +8,7 @@
   - name: 1. Update and install apt-transport-https
     shell:
       cmd: sudo apt-get update && sudo apt-get install -y apt-transport-https
-	  
+      
   - name: 2. Download apt key
     shell:
       cmd: curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
@@ -40,11 +40,11 @@
   - name: 9. Move Minikube installation
     shell:
       cmd: sudo mv minikube /usr/local/bin/  
-	  
+
   - name: 8. Start Minikube
     shell:
-      cmd: minikube start 	  
-	  
+      cmd: minikube start
+      
   - name: 9. Confirm Configured
     shell:
       cmd: kubectl version	 
