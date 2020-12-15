@@ -38,6 +38,7 @@
       cmd: sudo mv minikube /usr/local/bin/  
 
   - name: 9. Start Minikube
+    become_user: ubuntu
     shell:
       cmd: minikube start
       
