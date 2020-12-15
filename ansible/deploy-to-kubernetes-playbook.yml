@@ -7,7 +7,7 @@
 
   - name: 1. Create Deployment called dev_ops_node_js
     shell:
-      cmd: kubectl create deployment dev-ops-node-js  --image=adamdon/dev_ops_node_js:latest 
+      cmd: kubectl create deployment dev-ops-node-js  --image=adamdon/dev-ops-node-js:latest 
 
   - name: 2. View new Deployment 
     shell:
