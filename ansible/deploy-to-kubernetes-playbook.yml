@@ -10,14 +10,17 @@
     shell:
       cmd: kubectl create deployment dev-ops-node-js --image=adamdon/dev-ops-node-js:latest 
 
-  - name: 3. Create new service called node-port-service
+  - name: 2. Create new service called node-port-service
+    become_user: ubuntu
     shell:
       cmd: kubectl expose deployment/dev-ops-node-js --type="NodePort" --port 80 --name node-port-service
 
-  - name: 4. Access the application from outside the cluster
+  - name: 3. Access the application from outside the cluster
+    become_user: ubuntu
     shell:
       cmd: curl $(minikube ip):80
 
-  - name: 5. Scale the Application
+  - name: 4. Scale the Application
+    become_user: ubuntu
     shell:
       cmd: kubectl scale deployments/kubernetes-bootcamp --replicas=4
