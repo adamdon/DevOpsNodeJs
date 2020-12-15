@@ -75,6 +75,41 @@ pipeline
 		
 		
 		
+		
+		
+		stage("Deploying new image to Kubernetes") 
+		{
+				steps
+				{
+					script 
+					{
+						sshPublisher 
+						(
+							continueOnError: false, 
+							failOnError: true,
+							publishers: [
+								sshPublisherDesc(
+									configName: "production_server",
+									verbose: true,
+									transfers: [
+										sshTransfer(
+											execCommand: "kubectl set image deployment/dev-ops-node-js dev-ops-node-js=adamdon/dev-ops-node-js:latest"
+										)
+									]
+								)
+							]
+						)
+					}
+				}
+		}
+		
+		
+		
+		
+		
+		
+		
+		
 
 		
 		
