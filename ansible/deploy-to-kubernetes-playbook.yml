@@ -8,17 +8,17 @@
   - name: 1. Create Deployment called dev_ops_node_js
     become_user: ubuntu
     shell:
-      cmd: kubectl create deployment dev-ops-node-js --image=adamdon/dev-ops-node-js:latest --port=1080
+      cmd: kubectl create deployment dev-ops-node-js --image=adamdon/dev-ops-node-js:latest --port=8443
 
   - name: 2. Create new service called node-port-service
     become_user: ubuntu
     shell:
-      cmd: kubectl expose deployment/dev-ops-node-js --type="NodePort" --port 1080 --name node-port-service
+      cmd: kubectl expose deployment/dev-ops-node-js --type="NodePort" --port 8443 --name node-port-service
 
   - name: 3. Access the application from outside the cluster
     become_user: ubuntu
     shell:
-      cmd: curl $(minikube ip):1080
+      cmd: curl $(minikube ip):8443
 
   - name: 4. Scale the Application
     become_user: ubuntu
