@@ -9,7 +9,7 @@ pipeline
 	
     stages
 	{
-		stage('Checkout SCM')
+		stage('Stage 1 Checkout SCM')
 		{
 				
 			steps
@@ -23,7 +23,7 @@ pipeline
 			}
 		}
 		
-		stage('Build Docker Image') 
+		stage('Stage 2 Build Docker Image') 
 		{
 						
 			steps
@@ -39,7 +39,7 @@ pipeline
 		
 		
 		
-		stage('Push Docker Image')
+		stage('Stage 3 Push Docker Image')
 		{
             		steps 
 			{
@@ -57,7 +57,7 @@ pipeline
 		
 		
 		
-		stage('SonarQube Testing') 
+		stage('Stage 4 SonarQube Testing') 
 		{
 			environment 
 			{
@@ -77,7 +77,7 @@ pipeline
 		
 		
 		
-		stage("Deploying new image to Kubernetes") 
+		stage("Stage 5 Deploying new image to Kubernetes") 
 		{
 				steps
 				{
