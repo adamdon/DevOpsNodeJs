@@ -81,7 +81,7 @@ pipeline
 		{
 				steps
 				{
-					sh 'ssh ubuntu@ec2-52-21-70-217.compute-1.amazonaws.com kubectl set image deployment/dev-ops-node-js dev-ops-node-js=adamdon/dev-ops-node-js:latest'
+					sh 'ssh ubuntu@ec2-52-21-70-217.compute-1.amazonaws.com kubectl rollout restart deployment/dev-ops-node-js'
 				}
 		}
 		
