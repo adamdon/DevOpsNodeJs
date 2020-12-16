@@ -15,12 +15,7 @@
     shell:
       cmd: kubectl expose deployment/dev-ops-node-js --type="NodePort" --port 8080 --name node-port-service
 
-  - name: 3. Access the application from outside the cluster
-    become_user: ubuntu
-    shell:
-      cmd: curl $(minikube ip):8080
-
-  - name: 4. Scale the Application
+  - name: 3. Scale the Application
     become_user: ubuntu
     shell:
       cmd: kubectl scale deployments/dev-ops-node-js --replicas=4
